@@ -4,6 +4,8 @@ Danah Dykstra, Jingyun Jia, Zhihao Lyu
 
 ShinyApp preview: [https://alexhaoge.shinyapps.io/STAT479-Project/)
 
+Run app.R in your own directory to view the ShinyApp
+
 ### Data
 This dataset identifies areas within a city where drivers are experiencing difficulty searching for parking. Cities can use this data to identify problem areas, adjust signage, and more. Only cities with a population of more than 100,000 are included.
 
