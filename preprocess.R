@@ -5,7 +5,7 @@ county_mean = parking %>%
                 PercentCar:PercentOther, 
                 POPESTIMATE2020:RNETMIG2020) %>% 
   group_by(County, State) %>%
-  mutate_at(vars(AvgTimeToPark:AvgTotalGeohashes, PercentCar:PercentOther), mean) %>%
+  summarize(across(everything(), mean)) %>%
   mutate(State = ifelse(
       test = State %in% state.name, 
       yes = state.abb[match(State, state.name)], 

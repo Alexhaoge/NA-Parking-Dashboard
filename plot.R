@@ -100,8 +100,7 @@ plot_scatter = function(data.selected, var) {
          title = paste0("Population vs. ", var),
          alpha = "Percent Searching",
          subtitle = "By County, Opacity by Percentage of Drivers Searching for Parking")+
-    scale_y_continuous(label=comma) -> g
-  ggplotly(g)
+    scale_y_continuous(label=comma)
 }
 
 

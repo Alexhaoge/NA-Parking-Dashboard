@@ -5,15 +5,11 @@ library(shinydashboard)
 library(tidyverse)
 library(ggplot2)
 library(sf)
-# library(gstat)
-# library(magrittr)
-# library(kriging)
 library(raster)
 library(scales)
 library(usmap)
 library(leaflet)
 library(ggrepel)
-library(plotly)
 library(patchwork)
 
 # Data Preparation --------------------------------------------------------
@@ -73,7 +69,7 @@ ui = dashboardPage(
           column(6,
             box(status = "primary", width = 12,
               selectInput("varScatterSelect", "Select variable", choices = varnames), 
-              plotlyOutput("scatter")
+              plotOutput("scatter")
             ),
             box(status = "info", width = 12,
               fluidRow(
@@ -144,7 +140,7 @@ server = function(input, output, session) {
   output$leaflet = renderLeaflet(plot_leaflet(leaflet_ds()))
   output$krig = renderLeaflet(plot_krig_new(krig[[input$krigCity]], input$krigThre))
   output$bar_top = renderPlot(plot_bar_top(county_mean, input$varBarSelect))
-  output$scatter = renderPlotly(plot_scatter(county_mean, input$varScatterSelect))
+  output$scatter = renderPlot(plot_scatter(county_mean, input$varScatterSelect))
   
   observe({
     if(input$stateHistSelect != "All states") {
